@@ -2,7 +2,14 @@
   "achievements": [],
   "news": [],
   "programs": [],
-  "files": [],
+  "files": [
+    {
+      "id": 1777623656331,
+      "name": "المبادرات",
+      "type": "Google Drive",
+      "url": "https://drive.google.com/drive/folders/1I9X39GgBkT9j0KPn5x-8TV9iAMFfP0-G?usp=drive_link"
+    }
+  ],
   "gallery": [],
   "texts": {}
 }
