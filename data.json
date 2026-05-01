@@ -1,6 +1,14 @@
 {
   "achievements": [],
-  "news": [],
+  "news": [
+    {
+      "id": 1777623839300,
+      "title": "حفل تكريم",
+      "date": "١٤٤٧",
+      "emoji": "📰",
+      "desc": "مبادرة"
+    }
+  ],
   "programs": [],
   "files": [
     {
