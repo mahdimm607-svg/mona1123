@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملف الإنجاز | أ. منى سعيد الزنبحي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --burg: #6b2d3e;
+  --burg-mid: #7d3349;
+  --burg-light: #9b4d63;
+  --mauve: #c4788a;
+  --blush: #e8b4bc;
+  --petal: #f5dce0;
+  --cream: #fdf6f7;
+  --warm: #f9f0f1;
+  --text: #3a1a22;
+  --text-mid: #6b3a46;
+  --text-light: #a07080;
+  --white: #ffffff;
+  --gold-line: #c4a882;
+  --shadow: 0 8px 40px rgba(107,45,62,0.15);
+  --shadow-sm: 0 4px 20px rgba(107,45,62,0.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;direction:rtl;}
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--petal);}
+::-webkit-scrollbar-thumb{background:var(--burg-light);border-radius:3px;}
+
+/* NAV */
+nav{position:fixed;top:0;right:0;left:0;z-index:1000;background:var(--burg);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:58px;box-shadow:0 2px 20px rgba(107,45,62,0.4);}
+.nav-logo{font-family:'Tajawal',sans-serif;font-size:1rem;font-weight:800;color:var(--white);white-space:nowrap;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,0.88);font-size:0.8rem;font-weight:500;padding:0 0.85rem;height:58px;display:flex;align-items:center;position:relative;transition:all 0.25s;white-space:nowrap;}
+.nav-links a::after{content:'';position:absolute;bottom:0;right:50%;left:50%;height:3px;background:var(--blush);transition:all 0.25s ease;}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.08);}
+.nav-links a:hover::after{right:0;left:0;}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.nav-toggle span{display:block;width:22px;height:2px;background:white;border-radius:2px;transition:all 0.3s;}
+
+/* HERO */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;padding-top:58px;overflow:hidden;}
+
+.hero-bg{position:absolute;inset:0;z-index:0;
+background:linear-gradient(180deg,rgba(232,210,214,0.5) 0%,rgba(245,220,224,0.7) 60%,rgba(245,228,230,0.9) 100%);}
+
+/* Soft building silhouette */
+.hero-building{position:absolute;bottom:0;left:0;right:0;z-index:1;height:52%;overflow:hidden;}
+.hero-building svg{width:100%;height:100%;}
+
+/* Blossom branch fixed top-right */
+.blossom-wrap{position:absolute;top:58px;right:0;z-index:3;width:300px;pointer-events:none;animation:sway 7s ease-in-out infinite;}
+@keyframes sway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(1.5deg) translateY(-4px)}}
+
+/* Petals */
+.petal-fall{position:absolute;z-index:4;pointer-events:none;opacity:0;animation:fallPetal linear infinite;}
+@keyframes fallPetal{0%{opacity:0;transform:translateY(-30px) rotate(0deg) translateX(0)}10%{opacity:0.9}90%{opacity:0.3}100%{opacity:0;transform:translateY(100vh) rotate(540deg) translateX(30px)}}
+
+/* Hero text */
+.hero-content{position:relative;z-index:10;text-align:center;padding:2rem;animation:heroIn 1.2s ease-out both;}
+@keyframes heroIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-welcome{font-size:1.1rem;color:var(--text-mid);font-weight:400;margin-bottom:0.5rem;animation:heroIn 1s 0.2s both;letter-spacing:0.06em;}
+.hero-title{font-family:'Tajawal',sans-serif;font-size:clamp(2.6rem,6vw,4.8rem);font-weight:900;color:var(--burg);line-height:1.15;margin-bottom:0.7rem;animation:heroIn 1s 0.3s both;text-shadow:0 2px 20px rgba(107,45,62,0.12);}
+.hero-sub{font-size:1rem;color:var(--text-mid);margin-bottom:1.8rem;animation:heroIn 1s 0.4s both;}
+
+.deco-line{display:flex;align-items:center;justify-content:center;gap:0.8rem;margin:0 auto 2rem;animation:heroIn 1s 0.5s both;}
+.deco-line::before,.deco-line::after{content:'';flex:1;max-width:80px;height:1px;background:var(--gold-line);}
+.deco-dot{width:8px;height:8px;background:var(--burg-light);border-radius:50%;box-shadow:0 0 0 4px rgba(107,45,62,0.12);}
+
+.hero-btn{display:inline-block;background:var(--burg);color:white;padding:0.85rem 3.2rem;border-radius:100px;font-family:'Cairo',sans-serif;font-size:1rem;font-weight:600;text-decoration:none;box-shadow:0 8px 30px rgba(107,45,62,0.4);transition:all 0.3s;animation:heroIn 1s 0.6s both;}
+.hero-btn:hover{background:var(--burg-mid);transform:translateY(-3px);box-shadow:0 14px 40px rgba(107,45,62,0.5);}
+
+/* SECTIONS */
+section{padding:5rem 2rem;}
+.container{max-width:1100px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:3rem;}
+.section-title{font-family:'Tajawal',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--burg);margin-bottom:0.7rem;}
+.section-deco{display:flex;align-items:center;justify-content:center;gap:0.6rem;margin:0 auto;}
+.section-deco::before,.section-deco::after{content:'';flex:1;max-width:55px;height:1px;background:var(--gold-line);opacity:0.5;}
+.section-deco-dot{width:7px;height:7px;background:var(--burg-light);border-radius:50%;}
+
+/* ABOUT */
+#about{background:var(--white);}
+.about-wrap{display:grid;grid-template-columns:120px 1fr;gap:3.5rem;align-items:center;max-width:820px;margin:0 auto;}
+.about-icon-box{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+.about-text p{font-size:0.95rem;color:var(--text-mid);line-height:2;margin-bottom:1rem;text-align:center;}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;margin-top:1.2rem;}
+.tag{padding:0.3rem 1rem;background:var(--petal);border:1px solid rgba(196,120,138,0.3);border-radius:100px;font-size:0.78rem;font-weight:600;color:var(--burg-mid);}
+
+/* TASKS */
+#tasks{background:var(--warm);}
+.tasks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem;}
+.task-card{background:var(--white);border-radius:16px;padding:2rem 1.8rem;border:1px solid rgba(196,120,138,0.15);box-shadow:var(--shadow-sm);transition:all 0.35s;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.task-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(196,120,138,0.35);}
+.task-icon-wrap{width:58px;height:58px;background:var(--petal);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1.2rem;border:1px solid rgba(196,120,138,0.2);transition:all 0.3s;}
+.task-card:hover .task-icon-wrap{background:var(--burg);}
+.task-title{font-family:'Tajawal',sans-serif;font-size:1rem;font-weight:700;color:var(--burg);margin-bottom:0.5rem;}
+.task-desc{font-size:0.83rem;color:var(--text-light);line-height:1.8;}
+
+/* ACHIEVEMENTS */
+#achievements{background:var(--white);}
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
+.ach-card{background:var(--warm);border-radius:16px;padding:2rem 1.5rem;text-align:center;border:1px solid rgba(196,120,138,0.15);box-shadow:var(--shadow-sm);transition:all 0.35s;position:relative;overflow:hidden;}
+.ach-card::after{content:'';position:absolute;bottom:0;right:0;left:0;height:3px;background:linear-gradient(90deg,var(--burg),var(--mauve));transform:scaleX(0);transition:transform 0.35s;transform-origin:right;}
+.ach-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.ach-card:hover::after{transform:scaleX(1);}
+.ach-icon{width:62px;height:62px;margin:0 auto 1.2rem;color:var(--burg-light);}
+.ach-icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.5;}
+.ach-num{font-family:'Tajawal',sans-serif;font-size:2.2rem;font-weight:900;color:var(--burg);line-height:1;margin-bottom:0.4rem;}
+.ach-label{font-size:0.88rem;color:var(--text-light);font-weight:500;line-height:1.5;}
+
+/* PROGRAMS */
+#programs{background:var(--warm);}
+.programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
+.prog-card{background:linear-gradient(135deg,var(--white),var(--petal));border-radius:16px;padding:1.8rem;border:1px solid rgba(196,120,138,0.2);transition:all 0.3s;text-align:center;}
+.prog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);}
+.prog-emoji{font-size:2.2rem;margin-bottom:0.8rem;display:block;}
+.prog-title{font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;color:var(--burg);margin-bottom:0.4rem;}
+.prog-desc{font-size:0.82rem;color:var(--text-light);line-height:1.7;}
+
+/* NEWS */
+#news{background:var(--white);}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+.news-card{background:var(--white);border-radius:16px;overflow:hidden;border:1px solid rgba(196,120,138,0.12);box-shadow:var(--shadow-sm);transition:all 0.35s;}
+.news-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+.news-img{height:140px;background:linear-gradient(135deg,var(--petal),var(--blush));display:flex;align-items:center;justify-content:center;font-size:3rem;}
+.news-body{padding:1.4rem;}
+.news-date{font-size:0.72rem;color:var(--mauve);font-weight:600;margin-bottom:0.4rem;}
+.news-title{font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;color:var(--burg);margin-bottom:0.4rem;line-height:1.5;}
+.news-desc{font-size:0.82rem;color:var(--text-light);line-height:1.7;}
+
+/* GOALS */
+#goals{background:var(--warm);}
+.goals-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:960px;margin:0 auto;}
+.goal-card{background:var(--white);border-radius:14px;padding:1.6rem;border-right:4px solid var(--burg-light);border-top:1px solid rgba(196,120,138,0.12);border-bottom:1px solid rgba(196,120,138,0.12);border-left:1px solid rgba(196,120,138,0.12);transition:all 0.3s;position:relative;}
+.goal-card:hover{transform:translateX(-4px);box-shadow:var(--shadow-sm);border-right-color:var(--burg);}
+.goal-num{font-family:'Tajawal',sans-serif;font-size:2rem;font-weight:900;color:var(--petal);line-height:1;position:absolute;top:0.8rem;left:1rem;}
+.goal-title{font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;color:var(--burg);margin-bottom:0.4rem;}
+.goal-text{font-size:0.83rem;color:var(--text-light);line-height:1.8;}
+
+/* UPLOAD */
+#upload{background:var(--white);}
+.drive-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-bottom:2.5rem;}
+.drive-step{background:var(--cream);border-radius:14px;padding:1.5rem;text-align:center;border:1px solid rgba(196,120,138,0.15);transition:all 0.3s;}
+.drive-step:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);}
+.step-num{width:36px;height:36px;background:var(--burg);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.9rem;margin:0 auto 0.8rem;box-shadow:0 4px 14px rgba(107,45,62,0.3);}
+.step-icon{font-size:1.8rem;margin-bottom:0.6rem;}
+.step-title{font-family:'Tajawal',sans-serif;font-size:0.95rem;font-weight:700;color:var(--burg);margin-bottom:0.3rem;}
+.step-desc{font-size:0.8rem;color:var(--text-light);line-height:1.7;}
+.drive-manager{background:var(--cream);border-radius:20px;padding:2.2rem;border:1px solid rgba(196,120,138,0.2);box-shadow:var(--shadow-sm);}
+.drive-manager h3{font-family:'Tajawal',sans-serif;font-size:1.1rem;font-weight:800;color:var(--burg);margin-bottom:0.3rem;}
+.drive-manager>p{font-size:0.83rem;color:var(--text-light);margin-bottom:1.5rem;}
+.link-input-row{display:grid;grid-template-columns:1fr 1.4fr auto;gap:0.8rem;align-items:end;margin-bottom:1rem;}
+.input-group{display:flex;flex-direction:column;gap:0.35rem;}
+.input-group label{font-size:0.76rem;font-weight:600;color:var(--burg-mid);}
+.link-input-row input{padding:0.65rem 1rem;border:1.5px solid rgba(196,120,138,0.25);border-radius:10px;font-family:'Cairo',sans-serif;font-size:0.84rem;color:var(--text);background:white;transition:border-color 0.3s;width:100%;}
+.link-input-row input:focus{outline:none;border-color:var(--burg-light);}
+.btn-add{padding:0.65rem 1.2rem;background:var(--burg);color:white;border:none;border-radius:10px;font-family:'Cairo',sans-serif;font-size:0.84rem;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 4px 16px rgba(107,45,62,0.3);transition:all 0.3s;align-self:end;}
+.btn-add:hover{background:var(--burg-mid);transform:translateY(-2px);}
+.files-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:0.8rem;margin-top:1.2rem;}
+.file-card{background:white;border-radius:12px;padding:1rem 1.2rem;border:1px solid rgba(196,120,138,0.12);display:flex;align-items:center;gap:0.9rem;transition:all 0.3s;animation:fadeUp 0.4s ease;box-shadow:0 2px 10px rgba(107,45,62,0.06);}
+.file-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.file-card-icon{font-size:2rem;flex-shrink:0;}
+.file-card-info{flex:1;min-width:0;}
+.file-card-name{font-weight:700;font-size:0.85rem;color:var(--burg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.file-card-type{font-size:0.72rem;color:var(--text-light);margin-top:0.1rem;}
+.file-card-actions{display:flex;gap:0.4rem;flex-shrink:0;}
+.btn-open{padding:0.35rem 0.8rem;background:var(--petal);color:var(--burg);border:1px solid rgba(196,120,138,0.3);border-radius:7px;font-size:0.76rem;font-weight:600;cursor:pointer;text-decoration:none;white-space:nowrap;transition:all 0.2s;}
+.btn-open:hover{background:var(--burg);color:white;}
+.btn-del{padding:0.35rem 0.5rem;background:rgba(200,60,60,0.07);color:#b44;border:1px solid rgba(200,60,60,0.15);border-radius:7px;font-size:0.76rem;cursor:pointer;transition:all 0.2s;}
+.btn-del:hover{background:rgba(200,60,60,0.14);}
+.empty-state{text-align:center;padding:2rem;color:var(--text-light);font-size:0.85rem;}
+.empty-state span{font-size:2.5rem;display:block;margin-bottom:0.6rem;}
+.drive-open-row{display:flex;align-items:center;gap:1rem;margin-top:1.5rem;padding:1.2rem 1.5rem;background:rgba(107,45,62,0.05);border:1.5px dashed rgba(196,120,138,0.4);border-radius:14px;}
+.drive-open-row span{font-size:0.83rem;color:var(--text-mid);flex:1;line-height:1.6;}
+.btn-drive{padding:0.6rem 1.4rem;background:var(--burg);color:white;border:none;border-radius:10px;font-family:'Cairo',sans-serif;font-size:0.84rem;font-weight:600;cursor:pointer;text-decoration:none;white-space:nowrap;box-shadow:0 4px 16px rgba(107,45,62,0.3);transition:all 0.3s;}
+.btn-drive:hover{transform:translateY(-2px);background:var(--burg-mid);}
+
+/* GALLERY */
+#gallery{background:var(--warm);}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem;}
+.gallery-item{aspect-ratio:4/3;border-radius:14px;overflow:hidden;position:relative;cursor:pointer;box-shadow:var(--shadow-sm);transition:all 0.4s;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
+.gallery-item:hover{transform:scale(1.02);box-shadow:var(--shadow);}
+.gallery-item:hover img{transform:scale(1.08);}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(107,45,62,0.7));opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:0.8rem;}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+.gallery-caption{color:white;font-size:0.8rem;font-weight:600;}
+.gallery-placeholder{background:linear-gradient(135deg,var(--cream),var(--petal));border:2px dashed rgba(196,120,138,0.35);display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:4/3;border-radius:14px;color:var(--text-light);font-size:0.8rem;cursor:pointer;transition:all 0.3s;}
+.gallery-placeholder:hover{border-color:var(--burg-light);}
+.gallery-placeholder span{font-size:1.8rem;margin-bottom:0.4rem;}
+#gallery-input{display:none;}
+.gallery-add-btn{display:block;width:fit-content;margin:1.5rem auto 0;padding:0.7rem 2rem;background:var(--burg);color:white;border:none;border-radius:100px;font-family:'Cairo',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;box-shadow:0 6px 24px rgba(107,45,62,0.35);transition:all 0.3s;}
+.gallery-add-btn:hover{transform:translateY(-2px);background:var(--burg-mid);}
+
+/* CONTACT */
+#contact{background:var(--burg);padding:3rem 2rem;}
+.contact-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:3rem;align-items:center;max-width:900px;margin:0 auto;}
+.contact-item{display:flex;align-items:center;gap:0.8rem;color:rgba(255,255,255,0.85);font-size:0.9rem;}
+.contact-icon{width:38px;height:38px;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+
+footer{background:rgba(0,0,0,0.25);text-align:center;padding:1.2rem;color:rgba(255,255,255,0.45);font-size:0.78rem;}
+footer span{color:var(--blush);}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.lightbox.active{opacity:1;pointer-events:all;}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:12px;transform:scale(0.9);transition:transform 0.3s;}
+.lightbox.active img{transform:scale(1);}
+.lightbox-close{position:absolute;top:1.5rem;left:1.5rem;width:40px;height:40px;background:rgba(255,255,255,0.12);border:none;color:white;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal:nth-child(1){transition-delay:0.05s}.reveal:nth-child(2){transition-delay:0.1s}
+.reveal:nth-child(3){transition-delay:0.15s}.reveal:nth-child(4){transition-delay:0.2s}
+.reveal:nth-child(5){transition-delay:0.25s}.reveal:nth-child(6){transition-delay:0.3s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 1rem;}
+  .nav-links{display:none;flex-direction:column;position:absolute;top:58px;right:0;left:0;background:var(--burg);}
+  .nav-links.open{display:flex;}
+  .nav-links a{padding:0.9rem 1.5rem;height:auto;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .nav-links a::after{display:none;}
+  .nav-toggle{display:flex;}
+  .link-input-row{grid-template-columns:1fr;}
+  .contact-grid{gap:1.5rem;}
+  .blossom-wrap{width:200px;}
+}
+@media(max-width:580px){
+  .about-wrap{grid-template-columns:1fr;text-align:center;}
+  .hero-title{font-size:2rem;}
+  .ach-grid{grid-template-columns:repeat(2,1fr);}
+  .drive-open-row{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">أ. منى سعيد الزنبحي</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">الرئيسية</a></li>
+    <li><a href="#about">عن الوكيلة</a></li>
+    <li><a href="#tasks">المسؤوليات</a></li>
+    <li><a href="#programs">البرامج والمبادرات</a></li>
+    <li><a href="#news">الفعاليات</a></li>
+    <li><a href="#goals">الأهداف</a></li>
+    <li><a href="#achievements">الإنجازات</a></li>
+    <li><a href="#upload">الملفات</a></li>
+    <li><a href="#gallery">معرض الصور</a></li>
+    <li><a href="#contact">تواصل معنا</a></li>
+  </ul>
+  <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Architectural building silhouette -->
+  <div class="hero-building">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- sky gradient -->
+      <defs>
+        <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e8ccd0" stop-opacity="0.3"/>
+          <stop offset="1" stop-color="#d4b0b8" stop-opacity="0.5"/>
+        </linearGradient>
+        <linearGradient id="buildG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#c8aaae" stop-opacity="0.45"/>
+          <stop offset="1" stop-color="#b89aa0" stop-opacity="0.55"/>
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="320" fill="url(#skyG)"/>
+      <!-- Main building center -->
+      <rect x="360" y="40" width="720" height="280" fill="url(#buildG)" rx="3"/>
+      <!-- Side wings -->
+      <rect x="180" y="100" width="220" height="220" fill="url(#buildG)" rx="2" opacity="0.7"/>
+      <rect x="1040" y="100" width="220" height="220" fill="url(#buildG)" rx="2" opacity="0.7"/>
+      <!-- Roof line -->
+      <rect x="350" y="30" width="740" height="20" fill="#b89aa0" opacity="0.4" rx="2"/>
+      <!-- Windows grid - main -->
+      <g fill="rgba(245,220,224,0.6)">
+        <rect x="420" y="80" width="40" height="50" rx="2"/><rect x="490" y="80" width="40" height="50" rx="2"/>
+        <rect x="560" y="80" width="40" height="50" rx="2"/><rect x="630" y="80" width="40" height="50" rx="2"/>
+        <rect x="700" y="80" width="40" height="50" rx="2"/><rect x="770" y="80" width="40" height="50" rx="2"/>
+        <rect x="840" y="80" width="40" height="50" rx="2"/><rect x="910" y="80" width="40" height="50" rx="2"/>
+        <rect x="980" y="80" width="40" height="50" rx="2"/>
+        <rect x="420" y="160" width="40" height="50" rx="2"/><rect x="490" y="160" width="40" height="50" rx="2"/>
+        <rect x="560" y="160" width="40" height="50" rx="2"/><rect x="630" y="160" width="40" height="50" rx="2"/>
+        <rect x="700" y="160" width="40" height="50" rx="2"/><rect x="770" y="160" width="40" height="50" rx="2"/>
+        <rect x="840" y="160" width="40" height="50" rx="2"/><rect x="910" y="160" width="40" height="50" rx="2"/>
+        <rect x="980" y="160" width="40" height="50" rx="2"/>
+      </g>
+      <!-- Ground -->
+      <rect x="0" y="290" width="1440" height="30" fill="#c8aaae" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <!-- Cherry blossom branch -->
+  <div class="blossom-wrap">
+    <svg viewBox="0 0 300 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Main branch -->
+      <path d="M280 410 C260 365 238 318 215 270 C192 222 178 172 165 128 C152 84 146 44 142 10" stroke="#8b5e3c" stroke-width="5.5" stroke-linecap="round"/>
+      <!-- Sub branches -->
+      <path d="M215 270 C192 255 164 248 138 254" stroke="#8b5e3c" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M180 198 C158 182 130 176 104 182" stroke="#8b5e3c" stroke-width="3" stroke-linecap="round"/>
+      <path d="M164 128 C142 115 116 110 90 116" stroke="#8b5e3c" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M238 326 C258 310 270 285 272 258" stroke="#8b5e3c" stroke-width="3" stroke-linecap="round"/>
+      <path d="M147 58 C126 46 100 42 75 48" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round"/>
+      <!-- Blossom clusters -->
+      <!-- Cluster bottom -->
+      <circle cx="140" cy="256" r="11" fill="#e8a0b0" opacity="0.92"/>
+      <circle cx="157" cy="248" r="10" fill="#f0b8c4" opacity="0.88"/>
+      <circle cx="124" cy="264" r="9" fill="#e090a2" opacity="0.82"/>
+      <circle cx="146" cy="271" r="8" fill="#f5c8d2" opacity="0.9"/>
+      <circle cx="118" cy="250" r="8" fill="#dda0b0" opacity="0.78"/>
+      <circle cx="164" cy="264" r="7" fill="#f0b8c4" opacity="0.75"/>
+      <!-- Cluster mid -->
+      <circle cx="108" cy="184" r="11" fill="#e8a0b0" opacity="0.92"/>
+      <circle cx="124" cy="176" r="10" fill="#f0b8c4" opacity="0.88"/>
+      <circle cx="94" cy="192" r="9" fill="#e090a2" opacity="0.82"/>
+      <circle cx="115" cy="198" r="8" fill="#f5c8d2" opacity="0.88"/>
+      <circle cx="130" cy="190" r="7" fill="#dda0b0" opacity="0.75"/>
+      <!-- Cluster upper -->
+      <circle cx="93" cy="118" r="10" fill="#e8a0b0" opacity="0.92"/>
+      <circle cx="108" cy="110" r="9" fill="#f0b8c4" opacity="0.88"/>
+      <circle cx="79" cy="126" r="8" fill="#e090a2" opacity="0.82"/>
+      <circle cx="100" cy="132" r="7" fill="#f5c8d2" opacity="0.88"/>
+      <!-- Cluster top -->
+      <circle cx="78" cy="50" r="10" fill="#e8a0b0" opacity="0.9"/>
+      <circle cx="93" cy="42" r="9" fill="#f0b8c4" opacity="0.85"/>
+      <circle cx="65" cy="58" r="8" fill="#e090a2" opacity="0.8"/>
+      <circle cx="105" cy="54" r="7" fill="#f5c8d2" opacity="0.82"/>
+      <!-- Right branch cluster -->
+      <circle cx="272" cy="260" r="9" fill="#e8a0b0" opacity="0.88"/>
+      <circle cx="258" cy="272" r="8" fill="#f0b8c4" opacity="0.82"/>
+      <circle cx="278" cy="276" r="7" fill="#e090a2" opacity="0.78"/>
+      <!-- Scattered -->
+      <circle cx="190" cy="152" r="6" fill="#f5c8d2" opacity="0.7"/>
+      <circle cx="245" cy="300" r="6" fill="#e8a0b0" opacity="0.65"/>
+      <circle cx="200" cy="230" r="5" fill="#f0b8c4" opacity="0.7"/>
+      <circle cx="155" cy="92" r="5" fill="#dda0b0" opacity="0.65"/>
+    </svg>
+  </div>
+
+  <!-- Falling petals -->
+  <div id="petals"></div>
+
+  <!-- Hero Text -->
+  <div class="hero-content">
+    <p class="hero-welcome">مرحباً بكم في</p>
+    <h1 class="hero-title">ملف إنجاز وكيلة<br>الشؤون الطلابية</h1>
+    <p class="hero-sub">نحو بيئة تعليمية محفّزة تصنع طالبةً متميزة</p>
+    <div class="deco-line"><div class="deco-dot"></div></div>
+    <a href="#about" class="hero-btn">تعرّف على المزيد</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">عن الوكيلة</h2>
+      <div class="section-deco"><div class="section-deco-dot"></div></div>
+    </div>
+    <div class="about-wrap">
+      <div class="about-icon-box reveal">
+        <svg width="110" height="120" viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="55" cy="38" r="24" stroke="#6b2d3e" stroke-width="2.5"/>
+          <path d="M18 100 C18 76 34 62 55 62 C76 62 92 76 92 100" stroke="#6b2d3e" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Stars -->
+          <path d="M55 6 L57.8 14.5 L67 14.5 L59.6 19.8 L62.4 28.3 L55 23 L47.6 28.3 L50.4 19.8 L43 14.5 L52.2 14.5 Z" fill="#c4788a" opacity="0.55"/>
+          <path d="M24 56 L26.2 62.5 L33 62.5 L27.4 66.4 L29.6 73 L24 69.1 L18.4 73 L20.6 66.4 L15 62.5 L21.8 62.5 Z" fill="#c4788a" opacity="0.42"/>
+          <path d="M86 56 L88.2 62.5 L95 62.5 L89.4 66.4 L91.6 73 L86 69.1 L80.4 73 L82.6 66.4 L77 62.5 L83.8 62.5 Z" fill="#c4788a" opacity="0.42"/>
+        </svg>
+      </div>
+      <div class="about-text reveal">
+        <p>تعمل وكيلة الشؤون الطلابية <strong style="color:var(--burg)">أ. منى سعيد الزنبحي</strong> على دعم الطالبات وتمكينهن من خلال تقديم برامج نوعية وخدمات متميزة، وتهيئة بيئة تعليمية جاذبة تُسهم في بناء شخصية متوازنة وقيادية ترتقي لمستقبل مشرق.</p>
+        <p>تؤمن أ. منى بأن رسالتها تتجاوز الجانب الإداري لتشمل الجانب الإنساني والتربوي، إذ تسعى دائمًا لأن تكون شريكًا حقيقيًا في مسيرة كل طالبة نحو النجاح والتميز.</p>
+        <div class="about-tags">
+          <span class="tag">القيادة التربوية</span>
+          <span class="tag">الإرشاد الطلابي</span>
+          <span class="tag">التخطيط الاستراتيجي</span>
+          <span class="tag">خدمة الطالبات</span>
+          <span class="tag">الإبداع والابتكار</span>
+          <span class="tag">الشراكة الأسرية</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TASKS -->
+<section id="tasks">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">المسؤوليات</h2>
+      <div class="section-deco"><div class="section-deco-dot"></div></div>
+    </div>
+    <div class="tasks-grid">
+      <div class="task-card reveal"><div class="task-icon-wrap">📋</div><div class="task-title">التسجيل والقبول</div><p class="task-desc">الإشراف على تسجيل الطالبات الجديدات وتوثيق البيانات وضمان انتظام قواعد المعلومات.</p></div>
+      <div class="task-card reveal"><div class="task-icon-wrap">📊</div><div class="task-title">متابعة الحضور والغياب</div><p class="task-desc">رصد الغياب المتكرر والتواصل مع أولياء الأمور لمعالجة الأسباب وضمان الانتظام.</p></div>
+      <div class="task-card reveal"><div class="task-icon-wrap">🤝</div><div class="task-title">التواصل مع أولياء الأمور</div><p class="task-desc">توطيد العلاقة بين المدرسة والأسرة عبر الاجتماعات الدورية وقنوات التواصل المفتوحة.</p></div>
+      <div class="task-card reveal"><div class="task-icon-wrap">🌟</div><div class="task-title">الأنشطة الطلابية</div><p class="task-desc">تخطيط وتنفيذ البرامج التي تُنمّي مهارات الطالبات وتُعزز ثقتهن وانتماءهن.</p></div>
+      <div class="task-card reveal"><div class="task-icon-wrap">⚖️</div><div class="task-title">النظام والسلوك</div><p class="task-desc">الإشراف على تطبيق اللوائح والأنظمة بأسلوب تربوي يُراعي نمو الطالبة.</p></div>
+      <div class="task-card reveal"><div class="task-icon-wrap">📁</div><div class="task-title">الوثائق الرسمية</div><p class="task-desc">استخراج الشهادات وإدارة الملفات الطلابية بدقة واحترافية عالية.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">أبرز الإنجازات</h2>
+      <div class="section-deco"><div class="section-deco-dot"></div></div>
+    </div>
+    <div class="ach-grid">
+      <div class="ach-card reveal">
+        <div class="ach-icon"><svg viewBox="0 0 64 64"><circle cx="32" cy="20" r="12"/><path d="M12 54c0-11 9-18 20-18s20 7 20 18"/></svg></div>
+        <div class="ach-num">٥٠٠+</div>
+        <div class="ach-label">دعم وتمكين الطالبات</div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon"><svg viewBox="0 0 64 64"><rect x="10" y="14" width="44" height="40" rx="4"/><path d="M10 26h44M22 10v8M42 10v8"/><rect x="18" y="32" width="8" height="8" rx="1"/><rect x="28" y="32" width="8" height="8" rx="1"/><rect x="38" y="32" width="8" height="8" rx="1"/></svg></div>
+        <div class="ach-num">٣٠+</div>
+        <div class="ach-label">تنظيم الفعاليات والأنشطة</div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon"><svg viewBox="0 0 64 64"><path d="M12 36c8-14 32-14 40 0"/><path d="M20 24c0-6.6 5.4-12 12-12s12 5.4 12 12"/><path d="M8 52c8-14 40-14 48 0" opacity="0.5"/></svg></div>
+        <div class="ach-num">٨٠+</div>
+        <div class="ach-label">تعزيز الشراكات مع الأسر</div>
+      </div>
+      <div class="ach-card reveal">
+        <div class="ach-icon"><svg viewBox="0 0 64 64"><rect x="8" y="44" width="10" height="14" rx="2"/><rect x="22" y="32" width="10" height="26" rx="2"/><rect x="36" y="20" width="10" height="38" rx="2"/><rect x="50" y="10" width="10" height="48" rx="2"/><polyline points="12,42 27,30 41,18 55,10" stroke-width="2" fill="none"/></svg></div>
+        <div class="ach-num">١٥</div>
+        <div class="ach-label">تحقيق التميز — شهادات تقدير</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">البرامج والمبادرات</h2>
+      <div class="section-deco"><div class="section-deco-dot"></div></div>
+    </div>
+    <div class="programs-grid">
+      <div class="prog-card reveal"><span class="prog-emoji">🌱</span><div class="prog-title">برنامج القيادة الطلابية</div><p class="prog-desc">تأهيل الطالبات على مهارات القيادة وبناء الفريق والتواصل الفعّال.</p></div>
+      <div class="prog-card reveal"><span class="prog-emoji">📚</span><div class="prog-title">مبادرة القراءة الإبداعية</div><p class="prog-desc">تحفيز الطالبات على القراءة وتنمية ملكة التفكير النقدي والإبداع.</p></div>
+      <div class="prog-card reveal"><span class="prog-emoji">🎨</span><div class="prog-title">برنامج الموهبة والإبداع</div><p class="prog-desc">اكتشاف مواهب الطالبات وتطويرها عبر ورش عمل متخصصة.</p></div>
+      <div class="prog-card reveal"><span class="prog-emoji">💚</span><div class="prog-title">مبادرة الصحة النفسية</div><p class="prog-desc">دعم صحة الطالبة النفسية والاجتماعية من خلال برامج الدعم.</p></div>
+      <div class="prog-card reveal"><span class="prog-emoji">🤝</span><div class="prog-title">برنامج العمل التطوعي</div><p class="prog-desc">تعزيز قيم المسؤولية الاجتماعية والعمل التطوعي لدى الطالبات.</p></div>
+      <div class="prog-card reveal"><span class="prog-emoji">🏆</span><div class="prog-title">برنامج المتفوقات</div><p class="prog-desc">رعاية الطالبات المتفوقات وتمكينهن من المشاركة في المسابقات.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">الفعاليات والأخبار</h2>
+      <div class="section-deco"><div class="section-deco-dot"></div></div>
+    </div>
+    <div class="news-grid">
+      <div class="news-card reveal"><div class="news-img">🌸</div><div class="news-body"><div class="news-date">١٤٤٦/١/١٥ هـ</div><div class="news-title">حفل استقبال الطالبات الجديدات</div><p class="news-desc">حفل ترحيبي دافئ للطالبات الجديدات بحضور أولياء الأمور وكادر المدرسة.</p></div></div>
+      <div class="news-card reveal"><div class="news-img">🏅</div><div class="news-body"><div class="news-date">١٤٤٦/٢/٨ هـ</div><div class="news-title">تكريم الطالبات المتفوقات</div><p class="news-desc">حفل تكريم الطالبات المتميزات دراسيًا وسلوكيًا بحضور مدير التعليم.</p></div></div>
+      <div class="news-card reveal"><div class="news-img">📖</div><div class="news-body"><div class="news-date">١٤٤٦/٣/٢٠ هـ</div><div class="news-title">معرض القراءة المدرسي السنوي</div><p class="news-desc">معرض يُعرض فيه إنتاج الطالبات الإبداعي في مجال القراءة والكتابة.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section id="goals">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">الأهداف والخطة</h2>
+      <div class="section-deco"><div class="section-deco-dot"></div></div>
+    </div>
+    <div class="goals-grid">
+      <div class="goal-card reveal"><div class="goal-num">١</div><div class="goal-title">🎯 رفع مستوى الانتماء المدرسي</div><p class="goal-text">تعزيز شعور الطالبة بالانتماء وتحفيزها على المشاركة الفعّالة.</p></div>
+      <div class="goal-card reveal"><div class="goal-num">٢</div><div class="goal-title">📉 خفض نسب الغياب</div><p class="goal-text">وضع خطط استباقية للحدّ من الغياب وتشجيع الانتظام بحوافز إيجابية.</p></div>
+      <div class="goal-card reveal"><div class="goal-num">٣</div><div class="goal-title">💡 تطوير البيئة التعليمية</div><p class="goal-text">تهيئة بيئة مدرسية جاذبة ومُحفّزة تُراعي متطلبات الجيل الجديد.</p></div>
+      <div class="goal-card reveal"><div class="goal-num">٤</div><div class="goal-title">🌱 تنمية المهارات القيادية</div><p class="goal-text">اكتشاف الطالبات القياديات وتأهيلهن للبرامج والمسابقات المحلية.</p></div>
+      <div class="goal-card reveal"><div class="goal-num">٥</div><div class="goal-title">🤲 تعزيز الشراكة الأسرية</div><p class="goal-text">بناء جسر متين بين المدرسة والأسرة يضمن تكاملًا في تربية الطالبة.</p></div>
+      <div class="goal-card reveal"><div class="goal-num">٦</div><div class="goal-title">📱 التحول الرقمي</div><p class="goal-text">توظيف التقنية في تحسين الخدمات الطلابية وتسهيل التواصل.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- UPLOAD -->
+<section id="upload">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">ملفات الإنجاز</h2>
+      <div class="section-deco"><div class="section-deco-dot"></div></div>
+    </div>
+    <div class="drive-steps reveal">
+      <div class="drive-step"><div class="step-num">١</div><div class="step-icon">☁️</div><div class="step-title">ارفعي الملف على Drive</div><p class="step-desc">افتحي Google Drive وارفعي ملفاتك (PDF، صور، مستندات...)</p></div>
+      <div class="drive-step"><div class="step-num">٢</div><div class="step-icon">🔗</div><div class="step-title">انسخي رابط المشاركة</div><p class="step-desc">كليك يمين ← مشاركة ← أي شخص لديه الرابط ← انسخي</p></div>
+      <div class="drive-step"><div class="step-num">٣</div><div class="step-icon">📌</div><div class="step-title">أضيفي الرابط هنا</div><p class="step-desc">الصقي الرابط في الحقل أدناه وسيظهر في القائمة فوراً</p></div>
+    </div>
+    <div class="drive-manager reveal">
+      <h3>📂 قائمة ملفات الإنجاز</h3>
+      <p>أضيفي روابط ملفاتك من Google Drive — تظهر كبطاقات يمكن فتحها مباشرة</p>
+      <div class="link-input-row">
+        <div class="input-group"><label>اسم الملف</label><input type="text" id="fileName" placeholder="مثال: شهادة التقدير ١٤٤٦"></div>
+        <div class="input-group"><label>رابط Google Drive</label><input type="text" id="fileUrl" placeholder="https://drive.google.com/..."></div>
+        <button class="btn-add" onclick="addDriveFile()">➕ إضافة</button>
+      </div>
+      <div id="filesList"><div class="empty-state"><span>📭</span>لا توجد ملفات بعد — أضيفي أول ملف من Drive!</div></div>
+      <div class="drive-open-row">
+        <span>📌 <strong>للرفع السريع:</strong> افتحي Google Drive وارفعي ملفاتك ثم انسخي الرابط هنا</span>
+        <a href="https://drive.google.com" target="_blank" class="btn-drive">☁️ فتح Google Drive</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">معرض الصور</h2>
+      <div class="section-deco"><div class="section-deco-dot"></div></div>
+    </div>
+    <input type="file" id="gallery-input" accept="image/*" multiple>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-placeholder" onclick="document.getElementById('gallery-input').click()"><span>🖼️</span><span>أضف صورة</span></div>
+      <div class="gallery-placeholder" onclick="document.getElementById('gallery-input').click()"><span>📸</span><span>أضف صورة</span></div>
+      <div class="gallery-placeholder" onclick="document.getElementById('gallery-input').click()"><span>🌸</span><span>أضف صورة</span></div>
+    </div>
+    <button class="gallery-add-btn" onclick="document.getElementById('gallery-input').click()">📷 رفع صور جديدة</button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-item"><div class="contact-icon">📍</div><span>المملكة العربية السعودية</span></div>
+    <div class="contact-item"><div class="contact-icon">📞</div><span>012-3456789</span></div>
+    <div class="contact-item"><div class="contact-icon">✉️</div><span>students@school.edu.sa</span></div>
+  </div>
+</section>
+
+<footer>
+  <span>أ. منى سعيد الزنبحي</span> — وكيلة شؤون الطالبات · العام الدراسي ١٤٤٦هـ · جميع الحقوق محفوظة
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+<script>
+// NAV
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>10));
+document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+
+// REVEAL
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// PETALS
+(function(){
+  const c=document.getElementById('petals');
+  const p=['🌸','🌺','🌷','✿','❀'];
+  for(let i=0;i<20;i++){
+    const d=document.createElement('div');
+    d.className='petal-fall';
+    d.textContent=p[i%p.length];
+    d.style.cssText=`left:${Math.random()*100}%;animation-duration:${7+Math.random()*9}s;animation-delay:${Math.random()*12}s;font-size:${8+Math.random()*10}px;`;
+    c.appendChild(d);
+  }
+})();
+
+// DRIVE
+let files=JSON.parse(localStorage.getItem('driveFiles')||'[]');
+function icon(u){if(/spreadsheet|excel/.test(u))return'📊';if(/presentation|ppt/.test(u))return'📑';if(/document|word/.test(u))return'📝';if(/pdf/.test(u))return'📄';if(/\.(jpg|jpeg|png|gif)/i.test(u))return'🖼️';return'📁';}
+function conv(u){const m=u.match(/\/d\/([\w-]+)/);return m?`https://drive.google.com/file/d/${m[1]}/view`:u;}
+function save(){localStorage.setItem('driveFiles',JSON.stringify(files));}
+function render(){
+  const el=document.getElementById('filesList');
+  if(!files.length){el.innerHTML='<div class="empty-state"><span>📭</span>لا توجد ملفات بعد — أضيفي أول ملف من Drive!</div>';return;}
+  el.innerHTML=`<div class="files-list">${files.map((f,i)=>`<div class="file-card"><span class="file-card-icon">${icon(f.url)}</span><div class="file-card-info"><div class="file-card-name">${f.name}</div><div class="file-card-type">Google Drive</div></div><div class="file-card-actions"><a href="${conv(f.url)}" target="_blank" class="btn-open">فتح ↗</a><button class="btn-del" onclick="del(${i})">✕</button></div></div>`).join('')}</div>`;
+}
+function addDriveFile(){
+  const n=document.getElementById('fileName').value.trim();
+  const u=document.getElementById('fileUrl').value.trim();
+  if(!n||!u){alert('يرجى إدخال الاسم والرابط');return;}
+  if(!u.startsWith('http')){alert('يرجى إدخال رابط صحيح');return;}
+  files.unshift({name:n,url:u});save();render();
+  document.getElementById('fileName').value='';document.getElementById('fileUrl').value='';
+}
+function del(i){if(!confirm('هل تريدين الحذف؟'))return;files.splice(i,1);save();render();}
+document.getElementById('fileUrl').addEventListener('keydown',e=>{if(e.key==='Enter')addDriveFile();});
+render();
+
+// GALLERY
+const gi=document.getElementById('gallery-input');
+const gg=document.getElementById('galleryGrid');
+gi.addEventListener('change',()=>{
+  [...gi.files].forEach(f=>{
+    const r=new FileReader();
+    r.onload=e=>{
+      const item=document.createElement('div');
+      item.className='gallery-item reveal';
+      item.innerHTML=`<img src="${e.target.result}" alt="${f.name}"><div class="gallery-overlay"><span class="gallery-caption">${f.name}</span></div>`;
+      item.addEventListener('click',()=>openLightbox(e.target.result));
+      gg.appendChild(item);obs.observe(item);
+      setTimeout(()=>item.classList.add('visible'),50);
+    };r.readAsDataURL(f);
+  });
+});
+
+function openLightbox(s){document.getElementById('lightboxImg').src=s;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
+</script>
+</body>
+</html>
